@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Folder Explorer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Ubicaciones</h1>
+        </div>
+
+        <!-- Vista Principal -->
+        <div id="mainView">
+            <div class="button-container">
+                <button class="btn btn-primary" onclick="toggleSearch()">Buscar</button>
+                <button class="btn btn-danger" onclick="showAddFolderDialog()">Agregar</button>
+            </div>
+            <div class="breadcrumb" id="breadcrumb">
+                <!-- Ruta de navegación -->
+            </div>
+            <div class="qr-grid" id="qrGrid">
+                <!-- QRs se generarán aquí -->
+            </div>
+        </div>
+
+        <!-- Vista de Agregar Carpeta -->
+        <div id="addFolderView" class="modal">
+            <div class="modal-content">
+                <h2>Nueva Carpeta</h2>
+                <input type="text" id="folderName" placeholder="Nombre de la carpeta" class="input">
+                <div class="button-container">
+                    <button class="btn btn-primary" onclick="cancelAdd()">Cancelar</button>
+                    <button class="btn btn-danger" onclick="addNewFolder()">Crear</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vista del QR -->
+        <div id="qrView" class="modal">
+            <div class="modal-content">
+                <h2>Código QR</h2>
+                <div id="currentQR"></div>
+                <div class="button-container">
+                    <button class="btn btn-primary" onclick="closeQRView()">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
